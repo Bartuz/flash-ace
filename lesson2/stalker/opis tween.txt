@@ -1,0 +1,61 @@
+Przyklad:
+
+
+import fl.transitions.Tween;
+import fl.transitions.easing.*;
+
+var skalaX:Tween = new Tween(fotka1_mc, "scaleX", Bounce.easeOut, fotka1_mc.scaleX, 2, 10, false);
+
+Opis:
+
+var skalaX:Tween = new Tween(
+
+obiekt, ktory animujemy,
+
+parametr,ktory animujemy np.: scaleX, rotatation itp.,
+
+rodzaj ruchu i jego zachowanie np.: Bounce.easeOut, Elastic.easeIn,
+
+parametry poczatkowe animacji np: fotka1_mc.scaleX, fotka1_mc.x itp,
+
+parametry koncowe animacji np: 360 itp,
+
+czas trwania np.:2,
+
+wybor sekundy/klatki: true - sekundy, false - klatki);
+
+
+Parametry:
+
+-alpha (zakres od 0 do 1)
+-x (w pikselach)
+-y (w pikselach)
+-rotation (w stopniach)
+-scaleX (wielkrotnosc)
+-scaleY (wielkrotnosc)
+
+Ease class and method – The type of tween and the method of ease applied to it. Flash comes bundled with 6 easing classes:
+
+1. Back – Extends the animation over one or both ends of the tween.
+
+2. Bounce – Creates a bouncing effect in the tween at one or both ends.
+
+3. Elastic – Creates a mixture of the bounce and back classes. The animation is extended over and bounces back at one or both ends of the Tween.
+
+4. Regular – Slower motion at one or both ends of the tween.
+
+5. Strong – Similar to regular but is more pronounced when combined with the various easing methods.
+
+6.None – A simple linear transition from a to b.
+
+These six easing classes each have three methods to control the ease:
+
+1. easeIn – The ease is applied only at the start of the tween.
+  
+2. easeOut – The ease is applied only at the end of the tween.
+
+3. easeInOut – The ease is applied at both the beginning and end of the tween.
+
+By combing the six easing classes with the three easing methods, we can create a possible 18 different effects for each property.
+
+
