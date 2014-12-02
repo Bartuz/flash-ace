@@ -1,0 +1,1 @@
+﻿package  {		import flash.display.MovieClip;		public class Pilka extends MovieClip { 		public function Pilka() {			trace("Stworzylem pilke");		}				public function changeSize(size:Number):void{			this.scaleX = size;			this.scaleY = size;		}	}	}
