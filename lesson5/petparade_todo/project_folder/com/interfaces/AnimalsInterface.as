@@ -1,0 +1,1 @@
+﻿package com.interfaces {		public interface AnimalsInterface {				function makeMove():void;		function stopMove():void;			}	}
