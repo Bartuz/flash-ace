@@ -1,0 +1,85 @@
+
+//---------------- ten kod można wstawić do kl. 1 ale przerób go na klasę Biedronka ------------------//
+
+var speedNormal:Number=6;
+
+// 4 zmienne dla 4 klawiszy strzałek
+var keyUp=false;
+var keyDown=false;
+var keyLeft=false;
+var keyRight=false;
+
+// predkosc (velocity)
+var speed=speedNormal;
+
+// predkosc obrotu
+var rotationSpeed=5;
+
+// ..... TO DO : przyłącz zdarzenie....
+function pressKey(pEvent) {
+	// jeśli klawisz jest wciśnięty, przekształć zmienną na true
+	if (pEvent.keyCode==38) {
+		keyUp=true;
+	} else if (pEvent.keyCode == 40) {
+		keyDown=true;
+	} else if (pEvent.keyCode == 37) {
+		keyLeft=true;
+	} else if (pEvent.keyCode == 39) {
+		keyRight=true;
+	}
+}
+
+//...........TO DO: przyłącz zdarzenie.....
+function releaseKey(pEvent) {
+	// jeśli klawisz nie jest wciśnięty, przekształć zmienną na false
+	if (pEvent.keyCode==38) {
+		keyUp=false;
+	} else if (pEvent.keyCode == 40) {
+		keyDown=false;
+	} else if (pEvent.keyCode == 37) {
+		keyLeft=false;
+	} else if (pEvent.keyCode == 39) {
+		keyRight=false;
+	}
+}
+
+
+// .... to do: przyłącz zdarzenie
+function circleEnterFrame(pEvent) {
+	// jeśli żaden klawisz nie jest wciśnięty, ustaw prędkość na zero
+	var velocity=0;
+	if (keyUp) {
+		velocity=- speed;
+	}
+	if (keyDown) {
+		velocity=speed;
+	}
+	if (keyLeft) {
+		// obróć obiekt
+		pEvent.currentTarget.rotation-=rotationSpeed;
+	}
+	if (keyRight) {
+		// obróć obiekt
+		pEvent.currentTarget.rotation+=rotationSpeed;
+	}
+	// konwersja stopnie na radiany
+	var angleRadian=pEvent.currentTarget.rotation/180*Math.PI;
+	
+	// przesuń obiekt zgodnie z radianem i prędkością
+	pEvent.currentTarget.x+=Math.cos(angleRadian)*velocity;
+	pEvent.currentTarget.y+=Math.sin(angleRadian)*velocity;
+}
+
+
+2. ------------------------------ generowanie robaczków ----------------------------
+
+function startGame(ilosc_robakow:Number) {
+	for (var i=0; i<ilosc_robakow; i++) {
+		var losx=Math.sin(Math.random()*360);
+		var losy=Math.sin(Math.random()*360);
+		var gdzie_x=Math.floor(Math.random()*150)*losx;
+		var gdzie_y=Math.floor(Math.random()*150)*losy;
+		var r:Robak=new Robak(gdzie_x,gdzie_y,swiat_mc.biedronka_mc,kropelki);
+		swiat_mc.addChild(r);
+	}
+}

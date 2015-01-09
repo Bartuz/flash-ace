@@ -1,1 +1,0 @@
-﻿package com.display {		public class Dog extends Animal {		private var sound:Bark;		public function Dog() {			super();			this.predkosc = 8;		}				public function bark(){			sound = new Bark();			sound.play();		}	}	}
